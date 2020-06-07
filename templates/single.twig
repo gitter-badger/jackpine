@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <img src="{{ post.thumbnail.src}}">
+        <section class="article-content">
+            <h1>{{ post.title }}</h1>
+            <p>By<a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
+            <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+            <div>
+                {{post.content}}
+            </div>
+        </section>
+    </article>
+
+    <!-- Comments section. Eliminate this section if not desired. -->
+
+    <section class="my-8">
+        <ul>
+            {% if post.comment_status == "closed" %}
+                <p>Comments are closed </p>
+            {% else %}
+                <h3 class="mb-4">Comments:</h3>
+                {% for comment in post.comments() %}
+                    {% include 'comment.twig' %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <div class="comment-form">
+            {% include 'comment-form.twig' %}
+        </div>
+    </section>
+
+{% endblock %}

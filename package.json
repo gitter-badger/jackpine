@@ -1,0 +1,34 @@
+{
+    "name": "@45north/jackpine",
+    "description": "WordPress for the '20s.",
+    "homepage": "https://github.com/45-North-Ventures-LLC/jackpine",
+    "bugs": "https://github.com/45-North-Ventures-LLC/jackpine/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/45-North-Ventures-LLC/jackpine.git"
+    },
+    "author": "45 North Ventures LLC",
+    "contributors": [
+        "Dylan Layne Tanner <dylan.tanner@45northventures.com>",
+        "Aedon Tanner <aedon.tanner@45northventures.com>"
+    ],
+    "version": "0.9.1",
+    "license": "MIT",
+    "scripts": {
+        "bootstrap": "wpackio-scripts bootstrap",
+        "build": "wpackio-scripts build",
+        "start": "wpackio-scripts start",
+        "package": "wpackio-scripts pack"
+    },
+    "dependencies": {
+        "alpinejs": "^2.3.5",
+        "tailwindcss": "^1.4.6"
+    },
+    "devDependencies": {
+        "@wpackio/entrypoint": "^4.4.1",
+        "@wpackio/scripts": "^4.4.1",
+        "node-sass": "^4.14.1",
+        "plop": "^2.7.1",
+        "prettier": "^2.0.5"
+    }
+}

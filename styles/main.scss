@@ -1,0 +1,37 @@
+// Import default styling (for clients who won't be using Tailwind)
+@import 'defaults/lists';
+@import 'defaults/typography';
+
+// Import WooCommerce styles
+@import 'woocommerce/woocommerce';
+
+// Import Gutenberg blocks
+@import 'blocks/archives';
+@import 'blocks/audio';
+@import 'blocks/block-quote';
+@import 'blocks/buttons';
+@import 'blocks/calendar';
+@import 'blocks/categories';
+@import 'blocks/code';
+@import 'blocks/columns';
+@import 'blocks/cover';
+@import 'blocks/file';
+@import 'blocks/gallery';
+@import 'blocks/group';
+@import 'blocks/image';
+@import 'blocks/latest-comments';
+@import 'blocks/latest-posts';
+@import 'blocks/media-text';
+@import 'blocks/preformatted';
+@import 'blocks/pullquote';
+@import 'blocks/search';
+@import 'blocks/separator';
+@import 'blocks/spacer';
+@import 'blocks/tag-cloud';
+@import 'blocks/verse';
+
+// Import Tailwind.css core
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

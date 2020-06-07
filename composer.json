@@ -1,0 +1,25 @@
+{
+    "name": "45north/jackpine",
+    "type": "project",
+    "description": "WordPress for the '20s.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dylan Layne Tanner",
+            "email": "dylan.tanner@45northventures.com"
+        },
+        {
+            "name": "Aedon Tanner",
+            "email": "aedon.tanner@45northventures.com"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.16",
+        "wpackio/enqueue": "^2.1"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}

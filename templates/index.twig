@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% for post in posts %}
+		{% include ['preview-'~post.post_type~'.twig', 'preview.twig'] %}
+	{% endfor %}
+
+	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+{% endblock %}

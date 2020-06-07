@@ -1,0 +1,37 @@
+{% if comment.is_child %}
+    <li class="blog-comment {{comment.comment_type}} mb-8 ml-20 flex flex-col" id="blog-comment-{{comment.ID}}">
+        <div class="flex flex-row">
+            <img src="{{ post.author.avatar({ size: 95 }) }}" alt="" class="rounded-lg mr-8">
+            <div class="comment-content">
+                <h5 class="comment-author mb-2 font-semibold">{{comment.author.name}}:</h5>
+                {{comment.comment_content|wpautop}}
+            </div>
+        </div>
+
+        {% if post.comments %}
+            {% for comment in comment.children %}
+                {% include "comment.twig" with {comment:comment} %}
+            {% endfor %}
+        {% endif %}
+    </li>
+{% else %}
+    <li class="blog-comment {{comment.comment_type}} mb-8 ml-8 flex flex-col" id="blog-comment-{{comment.ID}}" x-data="{ open: false }">
+        <div class="flex flex-row mb-4">
+            <img src="{{ post.author.avatar({ size: 125 }) }}" alt="" class="rounded-lg mr-8">
+            <div class="comment-content">
+                <h5 class="comment-author mb-2 font-semibold">{{comment.author.name}} says</h5>
+                {{comment.comment_content|wpautop}}
+                <button class="px-6 py-2 bg-gray-400 font-bold uppercase tracking-widest rounded-lg my-4 text-sm" @click="open = !open">Reply</button>
+            </div>
+        </div>
+
+        <div class="comment-box" x-show="open">
+            {% include "comment-form.twig" %}
+            {% if post.comments %}
+                {% for comment in comment.children %}
+                    {% include "comment.twig" with {comment:comment} %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </li>
+{% endif %}

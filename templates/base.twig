@@ -1,0 +1,45 @@
+ <!doctype html>
+
+    <head>
+        <meta charset="{{ site.charset }}" />
+        <meta name="description" content="{{ site.description }}">
+        <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="pingback" href="{{ site.pingback_url }}" />
+        {{function('wp_head')}}
+
+	</head>
+
+	<body class="{{body_class}}" data-template="base.twig">
+
+    {% include 'header.twig' %}
+
+    <main id="main">
+
+        <div id="content">
+
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+
+        </div>
+
+        {% if sidebar %}
+            <aside id="sidebar" class="layout-sidebar">
+                {{sidebar}}
+            </aside>
+        {% endif %}
+
+    </main>
+
+    {% block footer %}
+
+        {% include 'footer.twig' %}
+
+    {% endblock %}
+
+    {{ function('wp_footer') }}
+
+    </body>
+
+</html>
