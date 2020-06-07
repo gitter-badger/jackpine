@@ -13,8 +13,8 @@ When you develop a theme based on Jackpine, you get the following setup out-of-t
 -   **Timber**, a library that lets you create WordPress templates using the Twig templating engine
 -   **Tailwind CSS** for rapidly building beautiful designs
 -   **Alpine.js** for adding reactivity to your frontend
--   **WPACK.io**—an awesome tool for asset bundling with Webpack and live reloading with Browsersync (designed specifically for WordPress)
--   **Composer** and **Yarn** for dependency management
+-   **wpack.io**, an awesome tool for asset bundling with Webpack and live reloading with Browsersync (designed specifically for WordPress)
+-   **Composer** and **Yarn** for modern dependency management
 
 Because Jackpine is based on Timber, you have access to [all of their helper classes](https://timber.github.io/docs/reference/). As an added bonus, Timber plays nice with Advanced Custom Fields, allowing you to build themes for complex use cases.
 
@@ -28,10 +28,10 @@ Jackpine is a great starting point for any WordPress developer or team who is lo
 
 Installing and configuring Jackpine for local development is pretty straightforward:
 
-1. Clone the repository (or download the ZIP and extract it) into your `wp-content/themes` directory. Feel free to rename the folder to whatever you want for your site.
+1. Clone the repository (or download the zip and extract it) into your `wp-content/themes` directory. Feel free to rename the folder to whatever you want for your site.
 2. In the console, run `composer install` and `yarn install` to install your dependencies.
-3. (Optional) Jackpine includes a configuration script that can automatically update the template files with your new theme's name, author name, and description. To run it, just type in `yarn run config` and answer the questions.
-4. Configure the WPACK.io server by running `yarn run bootstrap` and answering the questions.
+3. (Optional) Jackpine includes a plopfile that can automatically update the template files with your new theme's name, author name, and description. To run it, just type in `yarn run plop` and answer the questions.
+4. Configure the wpack.io server by running `yarn run bootstrap` and answering the questions.
 5. Activate your theme in the WordPress admin panel by going to Appearance > Themes.
 
 Now you're set to build your theme!
@@ -44,45 +44,43 @@ The old way of developing a WordPress theme involved mixing HTML elements with P
 -   Style HTML elements by making use of Tailwind CSS's utility classes.
 -   Add reactivity to components with Alpine.js.
 
-To create page-specific templates, simply create a Twig file in the `\templates` directory called `page-{page name}.twig`, where {page name} is the title of your page. Thanks to the magic of Timber, the template file will automatically be detected and applied.
+To create page-specific templates, simply create a Twig file in the `templates` directory called `page-{page name}.twig`, where {page name} is the title of your page. Thanks to the magic of Timber, the template file will automatically be detected and applied.
 
 Otherwise, the PHP files function just as they would in any other WordPress theme.
 
-`style.css` is only used for your theme metadata in Jackpine.
+`style.css` is only used for your theme metadata.
 
-Throughout the theme development process, you'll want to consult the docs for [Timber](https://timber.github.io/docs/), [Twig](https://twig.symfony.com/), [Tailwind CSS](https://tailwindcss.com/docs/installation), [Alpine.js](https://github.com/alpinejs/alpine), and [WPACK.io](https://wpack.io/guides/).
+Throughout the theme development process, you'll want to consult the docs for [Timber](https://timber.github.io/docs/), [Twig](https://twig.symfony.com/), [Tailwind CSS](https://tailwindcss.com/docs/installation), [Alpine.js](https://github.com/alpinejs/alpine), and [wpack.io](https://wpack.io/guides/).
 
 ### 🎨 SCSS Stubs
 
-Jackpine includes **SCSS stubs** in the `\styles` directory to help you apply styling to Gutenberg blocks, form elements, and WooCommerce-specific classes. They're intended to use in conjunction with Tailwind CSS in the form of [component styling](https://tailwindcss.com/docs/extracting-components#keeping-things-composable). You can use them how you see fit (or not at all).
+Jackpine includes **SCSS stubs** in the `\styles` directory to help you apply styling to Gutenberg blocks, form elements, and WooCommerce-specific classes. They're intended for use in conjunction with Tailwind CSS in the form of [component styling](https://tailwindcss.com/docs/extracting-components#keeping-things-composable). You can use them how you see fit (or not at all).
 
-Because WPACK.io is bundled with Jackpine, you'll have access to a Browsersync-enabled local development server that will update every time you make a change to your SCSS or Twig files.
+Because Jackpine comes with wpack, you'll have access to a Browsersync-enabled local development server that will update every time you make a change to your SCSS or Twig files.
 
 ### 🖥 Development Server
 
-Just run `yarn run start` to start the development server. You can tell WPACK to manually recompile by pressing "r" at any time. Pressing "q" will force-quit.
+Just run `yarn run start` to start the development server. You can tell wpack to manually recompile by pressing "r" at any time. Pressing "q" will force-quit.
 
-WPACK.io will expose an IP address that can be used by other devices on your network. This is really useful for previewing how your site will look on different-sized devices.
+Browsersync will expose an IP address that can be used by other devices on your network. This is really useful for previewing how your site will look on different-sized devices.
 
 ## 🚀 Deployment
 
 To package your finished theme for deployment:
 
 1. Build your production assets bundle by running `yarn run build`.
-2. Run `yarn run pack` to create a Zip file of your theme.
-3. Locate the Zip file in the `\package` directory and upload it to your server.
-
-That's all there is to it.
+2. Run `yarn run package` to create a zip file of your theme.
+3. Locate the zip file in the `package` directory and upload it to your server.
 
 **Advanced:**
 
-If you have additional files that need to go in the Zip file that WPACK.io generates, you can specify them in the `packageFiles` section of your `wpackio.project.js` file.
+If you have additional files that need to go in the zip file that wpack generates, you can specify them in the `packageFiles` section of your `wpackio.project.js` file.
 
-Tailwind CSS includes PurgeCSS. It's set up to check your Twig files and detect which utility classes you've used, and include only the necessary ones in your production CSS. You can adjust these settings in `tailwind.config.js`.
+Tailwind CSS includes PurgeCSS. It's set up to check your Twig files and detect which classes you've used, and include only the necessary ones in your production bundle. You can adjust these settings in `tailwind.config.js`.
 
 ## 💖 Contributing
 
-If you're interested in contributing code to Jackpine as an open source project, feel free to check out our Contributor Guidelines and jump in! You can support Jackpine in other ways, too, like:
+If you're interested in contributing to Jackpine as an open source project, feel free to check out our Contributor Guidelines and jump in! You can support Jackpine in other ways, too, like:
 
 ⭐ Starring this project in GitHub
 
@@ -94,6 +92,6 @@ If you're interested in contributing code to Jackpine as an open source project,
 
 ---
 
-🌲 Jackpine was originally created by [Aedon Tanner](https://github.com/aedontanner) and [Dylan Layne Tanner](https://twitter.com/DylanLTanner) of [45° North Ventures](https://www.45northventures.com/). It is open-sourced under the [MIT License](https://opensource.org/licenses/MIT).
+🌲 Jackpine was originally created by [Aedon Tanner](https://github.com/aedontanner) and [Dylan Layne Tanner](https://twitter.com/DylanLTanner) of [45° North Ventures](https://www.45northventures.com/).
 
-Special thanks goes to the creators of Timber, Tailwind CSS, Alpine.js, and WPACK.io for their awesome work.
+Special thanks goes to the creators of Timber, Tailwind CSS, Alpine.js, and wpack.io for their awesome work.
