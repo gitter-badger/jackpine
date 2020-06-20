@@ -111,25 +111,7 @@ module.exports = plop => {
                 path: "sidebar.php",
                 pattern: name,
                 template: "{{pascalCase name}}",
-            },
-            {
-                type: "modify",
-                path: ".env",
-                pattern: name,
-                template: "{{name}}",
-            },
-            {
-                type: "modify",
-                path: ".env",
-                pattern: description,
-                template: "{{description}}",
-            },
-            {
-                type: "modify",
-                path: ".env",
-                pattern: author,
-                template: "{{author}}",
-            },
+            }
         ],
     });
 };
